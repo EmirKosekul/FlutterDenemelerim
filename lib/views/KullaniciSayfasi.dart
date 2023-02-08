@@ -17,6 +17,8 @@ class KSayfasi extends State<KullaniciSayfasi> {
   double _number1 = 0;
   double _number2 = 0;
   double result = 0;
+  String _yazi="";
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +28,16 @@ class KSayfasi extends State<KullaniciSayfasi> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(_yazi),
             Container(
-              child: Text(result.toString(),style: TextStyle(fontSize: 35),),
+              height: 50,
+            ),
+            Text(
+              result.toString(),
+              style: TextStyle(fontSize: 50),
+            ),
+            Container(
+              height: 50,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 500, right: 500),
@@ -51,16 +61,14 @@ class KSayfasi extends State<KullaniciSayfasi> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,            
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 IconButton(
                     onPressed: () {
                       _number1 = double.parse(_controller1.text);
                       _number2 = double.parse(_controller2.text);
                       result = _number1 + _number2;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     },
                     icon: Icon(Icons.add_circle_outline_outlined)),
                 IconButton(
@@ -68,9 +76,7 @@ class KSayfasi extends State<KullaniciSayfasi> {
                       _number1 = double.parse(_controller1.text);
                       _number2 = double.parse(_controller2.text);
                       result = _number1 - _number2;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     },
                     icon: Icon(Icons.remove_circle_sharp)),
                 TextButton(
@@ -78,9 +84,7 @@ class KSayfasi extends State<KullaniciSayfasi> {
                       _number1 = double.parse(_controller1.text);
                       _number2 = double.parse(_controller2.text);
                       result = _number1 / _number2;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     }),
                     child: Text("Division")),
                 TextButton(
@@ -88,9 +92,7 @@ class KSayfasi extends State<KullaniciSayfasi> {
                       _number1 = double.parse(_controller1.text);
                       _number2 = double.parse(_controller2.text);
                       result = _number1 * _number2;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     }),
                     child: Text("Multiplication")),
               ],
