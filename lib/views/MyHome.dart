@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'KullaniciSayfasi.dart';
 
 class MyHome extends StatefulWidget {
-  const MyHome({super.key});
-
   @override
   State<MyHome> createState() => _MyHomeState();
 }
@@ -13,7 +11,7 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   PageController _pageController = PageController();
   int _index = 0;
-  List<Widget> _screens = [MainHomeView(),KullaniciSayfasi()];
+  List<Widget> _screens = [MainHomeView(),KullaniciSayfasi.empty()];
   void onPageChanged(int index) {
     setState(() {
       _index = index;
@@ -42,7 +40,7 @@ class _MyHomeState extends State<MyHome> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person), label: "User")
+                icon: Icon(Icons.calculate_outlined), label: "Calculator")
           ]),         
     );
   }
