@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:deneme1/views/MainHomeView.dart';
+import 'package:deneme1/views/Oyun.dart';
 import 'package:flutter/material.dart';
 import 'KullaniciSayfasi.dart';
 
@@ -11,7 +12,7 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   PageController _pageController = PageController();
   int _index = 0;
-  List<Widget> _screens = [MainHomeView(),KullaniciSayfasi.empty()];
+  List<Widget> _screens = [MainHomeView(), KullaniciSayfasi.empty(),Oyun()];
   void onPageChanged(int index) {
     setState(() {
       _index = index;
@@ -28,20 +29,21 @@ class _MyHomeState extends State<MyHome> {
       appBar: AppBar(
         title: Text("Anasayfa"),
       ),
-      body:   PageView(
-              controller: _pageController,
-              children: _screens,
-              onPageChanged: onPageChanged,
-            ),   
-      bottomNavigationBar: BottomNavigationBar(backgroundColor: Colors.orange,
+      body: PageView(
+        controller: _pageController,
+        children: _screens,
+        onPageChanged: onPageChanged,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.lightBlueAccent,
           onTap: onItemTapped,
           currentIndex: _index,
           // ignore: prefer_const_literals_to_create_immutables
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.calculate_outlined), label: "Calculator")
-          ]),         
+            BottomNavigationBarItem(icon: Icon(Icons.calculate_outlined), label: "Calculator"),
+            BottomNavigationBarItem(icon: Icon(Icons.gamepad_outlined), label: "Game"),
+          ]),
     );
   }
 }
